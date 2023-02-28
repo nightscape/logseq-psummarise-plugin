@@ -14,8 +14,8 @@ export const callSettings = () => {
       key: "layer1Highlights",
       type: "enum",
       enumPicker: "radio",
-      enumChoices: ["==Highlights==", "**Bold**"],
-      default: "**Bold**",
+      enumChoices: ["_Underline_", "*Bold*"],
+      default: "*Bold*",
       description:
         "Indicate whether you use bold or highlights for your 1st layer.",
       title: "Layer 1 Highlight Method",
@@ -32,8 +32,8 @@ export const callSettings = () => {
       key: "layer2Highlights",
       type: "enum",
       enumPicker: "radio",
-      enumChoices: ["==Highlights==", "**Bold**"],
-      default: "==Highlights==",
+      enumChoices: ["_Underline_", "*Bold*"],
+      default: "_Underline_",
       description:
         "Indicate whether you use bold or highlights for your 2nd layer.",
       title: "Layer 2 Highlight Method",

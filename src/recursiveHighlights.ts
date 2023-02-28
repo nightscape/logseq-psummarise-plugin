@@ -1,11 +1,11 @@
 import { BlockEntity } from "@logseq/libs/dist/LSPlugin.user";
 
 const findBold = (content: string) => {
-  const rxBlockRef = new RegExp(`(?<=\\*\\*)(\\S.*?)(?=\\*\\*)`, `g`);
+  const rxBlockRef = new RegExp(`(?<=\\*)(\\S.*?)(?=\\*)`, `g`);
   return content.match(rxBlockRef);
 };
 const findHighlights = (content: string) => {
-  const rxBlockRef = new RegExp(`(?<=\\=\\=)(\\S.*?)(?=\\=\\=)`, `g`);
+  const rxBlockRef = new RegExp(`(?<=\\_)(\\S.*?)(?=\\_)`, `g`);
   return content.match(rxBlockRef);
 };
 
@@ -19,7 +19,7 @@ export const recurseFirstCut = async (
   for (let b of arr) {
     const payload = {
       highlights:
-        logseq.settings.layer1Highlights === "**Bold**"
+        logseq.settings.layer1Highlights === "*Bold*"
           ? findBold(b.content)
           : findHighlights(b.content),
       id: b.uuid,
@@ -45,7 +45,7 @@ export const recurseSecondCut = async (
   for (let b of arr) {
     const payload = {
       highlights:
-        logseq.settings.layer2Highlights === "**Bold**"
+        logseq.settings.layer2Highlights === "*Bold*"
           ? findBold(b.content)
           : findHighlights(b.content),
       id: b.uuid,

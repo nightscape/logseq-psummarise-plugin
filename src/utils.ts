@@ -45,13 +45,13 @@ export const goSummarise = async (arrOfBlocks: BlockEntity[]) => {
       continue;
     } else if (h.highlights.length === 1) {
       const payload = {
-        content: `${h.highlights[0]} [${logseq.settings.highlightsRefChar}](${h.id})`,
+        content: `${h.highlights[0]} [[((${h.id}))][${logseq.settings.highlightsRefChar}]]`,
       };
       highlightsBatchBlks.push(payload);
     } else {
       for (let i of h.highlights) {
         const payload = {
-          content: `${i} [${logseq.settings.highlightsRefChar}](${h.id})`,
+          content: `${i} [[((${h.id}))][${logseq.settings.highlightsRefChar}]]`,
         };
         highlightsBatchBlks.push(payload);
       }
