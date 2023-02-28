@@ -2,11 +2,11 @@ import { BlockEntity } from "@logseq/libs/dist/LSPlugin.user";
 
 const findBold = (content: string) => {
   const rxBlockRef = new RegExp(`(?<=\\*)(\\S.*?)(?=\\*)`, `g`);
-  return content.match(rxBlockRef);
+  return content.match(rxBlockRef)?.findIndex((_, i) => i % 2);
 };
 const findHighlights = (content: string) => {
   const rxBlockRef = new RegExp(`(?<=\\_)(\\S.*?)(?=\\_)`, `g`);
-  return content.match(rxBlockRef);
+  return content.match(rxBlockRef)?.findIndex((_, i) => i % 2);
 };
 
 // first cut is bold
